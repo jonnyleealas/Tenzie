@@ -3,8 +3,11 @@ import Dice from "./dice";
 import "./styles.css";
 import { nanoid } from "nanoid";
 import Confetti from "react-confetti";
+import Sound from "./sounds/splooge.wav"
+import yaySound from "./sounds/yay_z.wav"
 
 export default function App() {
+  
   const [tenzies, setTenzies] = React.useState(false);
   const [startOver, setStartOver] = React.useState(false);
   const createNewDice = () => {
@@ -25,6 +28,10 @@ export default function App() {
 
   const [dice, setDice] = React.useState(randomDice());
 
+  const handleWinSound = () => {
+    new Audio(yaySound).play()
+  }
+
   React.useEffect(() => {
     let obj = {};
 
@@ -36,7 +43,7 @@ export default function App() {
 
       if (obj[die.value] === 10) {
         setTenzies(true);
-        alert("game won");
+        handleWinSound()
       }
 
       if (obj.count === 10 && obj[die.value] !== 10) {
@@ -46,6 +53,9 @@ export default function App() {
     });
   }, [dice]);
 
+
+   
+
   const squares = dice.map((die) => {
     return (
       <Dice
@@ -53,6 +63,7 @@ export default function App() {
         number={die.value}
         isHeld={die.isHeld}
         hold={() => hold(die.id)}
+        slooge={() => hanldeSlooge()}
       />
     );
   });
@@ -72,6 +83,11 @@ export default function App() {
         return die.id === id ? { ...die, isHeld: !die.isHeld } : die;
       })
     );
+
+    const hanldeSlooge = () => {
+      new Audio(Sound).play()
+    }
+    hanldeSlooge()
   };
 
   const newGame = () => {
