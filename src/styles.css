@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 2em;
+  font-weight: bold;
+  background-color: #0b2434;
+}
+
+main {
+  background-color: #f5f5f5;
+  height: 400px;
+  max-width: 800px;
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.diceContainer {
+  display: grid;
+  grid-template: auto auto / repeat(5, 1fr);
+  background-color: #f5f5f5;
+  gap: 20px;
+}
+
+.dice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+
+  cursor: pointer;
+}
+
+.diceIsHeld {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: rgb(219, 37, 37);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+
+  cursor: pointer;
+}
