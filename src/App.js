@@ -5,11 +5,14 @@ import { nanoid } from "nanoid";
 import Confetti from "react-confetti";
 import Sound from "./sounds/splooge.wav"
 import yaySound from "./sounds/yay_z.wav"
+import pink from "./sounds/PinkPanther30.wav"
 
 export default function App() {
-  
+
   const [tenzies, setTenzies] = React.useState(false);
   const [startOver, setStartOver] = React.useState(false);
+
+  
   const createNewDice = () => {
     return {
       value: Math.ceil(Math.random() * 6),
@@ -69,11 +72,13 @@ export default function App() {
   });
 
   const handleRoll = () => {
+  
     setDice(
       dice.map((die) => {
         return die.isHeld ? die : createNewDice();
       })
     );
+ 
   };
 
   const hold = (id) => {
